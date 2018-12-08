@@ -13,6 +13,14 @@ A simple youtube client app, where you can filter videos, save videos to favorit
 - Submit comment ( only local supported) 
 - Filter videos
 
+## Tech Used 
+- Firebase for handling sign in and store database
+- Youtube Api
+- Realm to store messages locally 
+- Picasso to load Images
+- RecyclerView and Cardview 
+- Cusotom Dialog
+
 ## Demo and Screenshots
 
 ![chat_demo](https://github.com/makkhay/CTube/blob/master/Screenshots/Ctube.gif)
