@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        >
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:id="@+id/img_main_card_1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_alignParentTop="true"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop" />
+
+            <TextView
+                android:id="@+id/newsTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/img_main_card_1"
+                android:layout_marginEnd="@dimen/card_title_margin"
+                android:layout_marginStart="@dimen/card_title_margin"
+                android:layout_marginTop="@dimen/card_title_margin_top"
+                android:text="Title"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                />
+
+            <TextView
+                android:id="@+id/bodyText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/newsTitle"
+                android:layout_marginBottom="@dimen/card_subtitle_margin"
+                android:layout_marginEnd="@dimen/card_subtitle_margin"
+                android:layout_marginStart="@dimen/card_subtitle_margin"
+                android:layout_marginTop="@dimen/card_button_margin"
+                android:text="Body"
+                android:textSize="14sp"
+                />
+
+            <ImageButton
+                android:id="@+id/commentButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bodyText"
+                android:layout_margin="@dimen/card_button_margin"
+                android:textColor="@color/colorAccent1"
+                app:srcCompat="@drawable/baseline_insert_comment_black_24dp"
+                android:layout_alignParentEnd="true"
+                />
+
+
+            <ImageButton
+                android:id="@+id/favButton"
+                style="@style/Widget.AppCompat.Button.Borderless"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/bodyText"
+                android:layout_alignParentEnd="true"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="103dp"
+                android:layout_marginBottom="@dimen/card_button_margin"
+                android:textColor="@color/colorAccent1"
+                app:srcCompat="@drawable/ic_favorite_border_black_24dp" />
+
+
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</RelativeLayout>

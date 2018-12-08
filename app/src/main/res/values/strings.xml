@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">CTube</string>
+    <string name="my_tube">CTube</string>
+    <string name="title_activity_navigation">CTube</string>
+    <string name="title_search">Search</string>
+    <string name="title_favorites">Favorites</string>
+    <string name="title_logout">Log Out</string>
+    <string name="search">Search</string>
+    <string name="failed">Failed to initialize Youtube Player</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="favorite">Favorite</string>
+    <string name="log_out">Log Out</string>
+    <string name="favoriteSettings">Favorite</string>
+    <string name="notificationSettings">Notification</string>
+    <string name="name">CTube</string>
+    <string name="dialog_hint">Please Comment Down Below</string>
+    <string name="submitBtn">Submit</string>
+</resources>
