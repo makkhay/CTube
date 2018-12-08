@@ -32,15 +32,15 @@ repositories {
 }
 
 dependencies {
-    implementation 'com.google.firebase:firebase-auth:11.6.0'
+    implementation 'com.google.firebase:firebase-auth:16.0.5'
     implementation 'com.android.support:design:26.1.0'
     implementation 'com.android.support:support-vector-drawable:26.1.0'
     implementation 'com.android.support:support-v4:26.1.0'
-    implementation 'com.google.firebase:firebase-database:11.6.0'
+    implementation 'com.google.firebase:firebase-database:16.0.5'
     implementation "com.android.support:support-core-utils:26.1.0"
     implementation files('libs/YouTubeAndroidPlayerApi.jar')
-    implementation 'com.google.firebase:firebase-core:11.6.0'
-    implementation 'com.google.android.gms:play-services-auth:11.6.0'
+    implementation 'com.google.firebase:firebase-core:16.0.6'
+    implementation 'com.google.android.gms:play-services-auth:16.0.1'
     implementation('com.google.apis:google-api-services-youtube:v3-rev187-1.23.0') {
         exclude group: 'com.google.code.findbugs'
     }
@@ -52,10 +52,10 @@ dependencies {
     implementation 'com.squareup.picasso:picasso:2.5.2'
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation 'com.android.support:appcompat-v7:26.1.0'
-    implementation 'com.android.support.constraint:constraint-layout:1.0.2'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 
     implementation 'io.realm:realm-android:0.87.4'
     annotationProcessor 'io.realm:realm-android:0.87.4'
