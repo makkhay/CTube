@@ -6,41 +6,41 @@
 </p>
 
 
-# What's AI Chatbot app? 
-A chatting app powered by AI bot. In addition, this app also demonstrates the use of graphing chart libraries. 
+# What's CTube app? 
+A simple youtube client app, where you can filter videos, save videos to favorite, comment, and more... 
 
 
 
 ## Functionality
-- Users can sign up using email/password or phone number.
+- Users can sign up using Gmail
 - Login credentials are stored in firebase database for authentication. 
-- Automatic sign in when phone number is used.  
-- Powered by AI bot so that users can have a logical conversation.
-- Use Realm to store data locally 
-- Demonstrates different charts such as graph, piechart, line chart, duo chart and bar graphs.
-
+- Use Realm to store comment data locally. 
+- Store favorited videos to firebase database
+- Watch youtube Video 
+- Submit comment ( only local supported) 
+- Filter videos
 
 ## Demo and Screenshots
 
-![chat_demo](https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/first_gifff.gif)
+![chat_demo](https://github.com/makkhay/CTube/blob/master/Screenshots/Ctube.gif)
 
 <div style={{display: flex; flex-direction: row}}>
-  <img src="https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/onboarding.png" width="270" />
-  <img src="https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/nav_menu.png" width="270" />
+  <img src="https://github.com/makkhay/CTube/blob/master/Screenshots/1.png" width="270" />
+  <img src="https://github.com/makkhay/CTube/blob/master/Screenshots/2.png" width="270" />
+    <img src="https://github.com/makkhay/CTube/blob/master/Screenshots/3.png" width="270" />
 
 </div>
 
 <div style={{display: flex; flex-direction: row}}>
-  <img src="https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/login.png" width="270" />
-  <img src="https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/register.png" width="270" />
-  <img src="https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/phone_register.png" width="270" />
+  <img src="https://github.com/makkhay/CTube/blob/master/Screenshots/4.png" width="270" />
+  <img src="https://github.com/makkhay/CTube/blob/master/Screenshots/5.png" width="270" />
+  <img src="https://github.com/makkhay/CTube/blob/master/Screenshots/6.png" width="270" />
  
 </div>
 
 <div style={{display: flex; flex-direction: row}}>
-  <img src="https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/chat.png" width="270" />
-  <img src="https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/dashboard.png" width="270" />
-  <img src="https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/barchart.png" width="270" />
+  <img src="https://github.com/makkhay/CTube/blob/master/Screenshots/signIn.png" width="270" />
+  <img src="https://github.com/makkhay/CTube/blob/master/Screenshots/database.png" width="270" />
 </div>
 
 
@@ -48,8 +48,13 @@ A chatting app powered by AI bot. In addition, this app also demonstrates the us
 
  ## Firebase registered user database 
 <div style={{display: flex; flex-direction: row}}> 
-  <img src="https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/firebase.png" width="790" height="400" />
+  <img src="https://github.com/makkhay/CTube/blob/master/Screenshots/signIn.png" width="790" height="400" />
 </div>  
+
+ ## Firebase real timetime favorited user database 
+<div style={{display: flex; flex-direction: row}}> 
+  <img src="https://github.com/makkhay/CTube/blob/master/Screenshots/database.png" width="790" height="400" />
+</div> 
 
 ### TODO Part 1
 - [x] Credentials must be a Username + Password combination. Username can only be 1) a valid US Phone number or 2) a valid      email address
