@@ -1,11 +1,4 @@
 # CTube
-<p align="center">
-  <a href="https://github.com/makkhay/CameraTranslate2">
-    <img alt="daug" src="https://github.com/makkhay/FirebaseAI-Android-Chat-App/blob/master/app/src/main/res/mipmap-hdpi/ic_launcher.png" width="250">
-  </a>
-</p>
-
-
 # What's CTube app? 
 A simple youtube client app, where you can filter videos, save videos to favorite, comment, and more... 
 
