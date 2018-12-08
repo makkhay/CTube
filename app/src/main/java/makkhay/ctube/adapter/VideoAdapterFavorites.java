@@ -123,7 +123,7 @@ public class VideoAdapterFavorites extends RecyclerView.Adapter<VideoAdapterFavo
                     myVideoList.remove(position);
                     notifyDataSetChanged();
 
-                    Toast.makeText(mCtx, "Video Deleted From Playlist...", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(mCtx, "Video Deleted From Favorite", Toast.LENGTH_SHORT).show();
                 }
             });
         }
@@ -136,7 +136,6 @@ public class VideoAdapterFavorites extends RecyclerView.Adapter<VideoAdapterFavo
                 }
             });
         }
-
 
 
     }
