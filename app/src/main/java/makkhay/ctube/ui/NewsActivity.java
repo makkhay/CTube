@@ -16,16 +16,17 @@ import makkhay.ctube.R;
 import makkhay.ctube.util.YoutubeConnector;
 import makkhay.ctube.adapter.NewsDetailAdapter;
 
+/**
+ * This screen displays the news. It holds the news fragment
+ */
+
 public class NewsActivity extends AppCompatActivity {
+
   private List<MyVideo> myVideoList;
   private Handler handler;
   private String videoId;
   private RecyclerView mRecyclerView;
   private NewsDetailAdapter mNewsDetailAdapter;
-
-
-
-
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -42,19 +43,20 @@ public class NewsActivity extends AppCompatActivity {
     mRecyclerView = findViewById(R.id.recyclerViewNewsDetail);
     mRecyclerView.setHasFixedSize(true);
     mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
-    // Inflate the layout for this fragment
 
     videoId = getIntent().getStringExtra("VIDEO_ID");
-    searchOnYoutube();
+    displayYoutube();
     myVideoList = new ArrayList<MyVideo>();
     handler = new Handler();
 
-
-
   }
 
-
-  private void searchOnYoutube() {
+  /**
+   * This function displays videos through the youtube API when a keyword is passed.
+   *
+   * @param , to be loaded from the youtube api
+   */
+  private void displayYoutube() {
     new Thread(){
       @Override
       public void run() {

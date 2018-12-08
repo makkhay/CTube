@@ -7,6 +7,8 @@ import android.support.v4.app.FragmentPagerAdapter;
 import java.util.ArrayList;
 
 /**
+ * Adapter class to connect two fragments.
+ * Used by Viewpager
  */
 
 public class MyFragPagerAdapter extends FragmentPagerAdapter {

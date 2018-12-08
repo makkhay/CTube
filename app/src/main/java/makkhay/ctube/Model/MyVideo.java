@@ -1,7 +1,11 @@
 package makkhay.ctube.Model;
 
 
-
+/**
+ * Created by Prakash Gurung on 12/7/18.
+ *
+ * Simple model class
+ */
 public class MyVideo {
     private String title;
     private String numberOfViews;

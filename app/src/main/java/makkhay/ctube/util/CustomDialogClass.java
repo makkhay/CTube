@@ -24,7 +24,9 @@ import makkhay.ctube.Model.Comment;
 import makkhay.ctube.R;
 import makkhay.ctube.adapter.CommentAdapter;
 
-
+/**
+ * This is a custom dialog box which extends Dialog. This class takes input from the user and displays it
+ */
 public class CustomDialogClass extends Dialog {
 
   private Context c;
@@ -34,7 +36,6 @@ public class CustomDialogClass extends Dialog {
   private List<Comment> mCommentList;
   private CommentAdapter mCommentAdapter;
   private Realm realm;
-
 
   public CustomDialogClass(Context a) {
     super(a);
@@ -63,35 +64,31 @@ public class CustomDialogClass extends Dialog {
       realm.commitTransaction();
     }
 
-
     mRecyclerView = (RecyclerView) findViewById(R.id.messageRV);
     mRecyclerView.setHasFixedSize(true);
     mRecyclerView.setLayoutManager(new LinearLayoutManager(c));
     mRecyclerView.setAdapter(mCommentAdapter);
 
-
-
     submitButton = (ImageButton) findViewById(R.id.submit_btn);
     editText = (AppCompatEditText) findViewById(R.id.edit_feedback);
 
-
+    // submit button onClick, it will get the user input and populate the realm database notify the adapter
     submitButton.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
         realm.beginTransaction();
-
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         String name;
+        // if user is null then display it.
         if (user != null) {
           // Name, email address etc
          name = user.getDisplayName();
          Comment comment = realm.createObject(Comment.class);
          comment.setAuthor(name);
          comment.setComment(editText.getText().toString());
-          realm.commitTransaction();
-
-          mCommentList.add(comment);
-          mCommentAdapter.notifyDataSetChanged();
+         realm.commitTransaction();
+         mCommentList.add(comment);
+         mCommentAdapter.notifyDataSetChanged();
 
         } else {
           Comment comment = new Comment("User: " ,editText.getText().toString());
@@ -99,8 +96,6 @@ public class CustomDialogClass extends Dialog {
           mCommentAdapter.notifyDataSetChanged();
 
         }
-
-
         Toast.makeText(c,"Posted",Toast.LENGTH_SHORT).show();
 
       }

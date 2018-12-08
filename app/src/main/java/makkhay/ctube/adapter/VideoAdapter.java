@@ -30,6 +30,7 @@ import makkhay.ctube.R;
 import makkhay.ctube.util.IntentShare;
 
 /**
+ *  * This is adapter class to bridge between the UI components and the data source, and finally populate the Recyclerview
  */
 
 public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHolder> {
@@ -117,7 +118,10 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
 
         }
 
-
+        /**
+         * It will set the id for the particular item from the list. It will be send to another acitivty using intent
+         * @param vID video id
+         */
         private void setVideoIDForPlayer(final String vID){
             //To Play Video
             videoThumbnail.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +136,9 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
         }
 
         /**
-         * ADD VIDEO TO DATABASE...
+         * This method helps to save an item to favorite
+         *
+         * @param position is used to get the particular item from the list
          */
         private void setFavoriteListener(final int position) {
             favButton = itemView.findViewById(R.id.favoriteButton);
@@ -157,29 +163,11 @@ public class VideoAdapter extends RecyclerView.Adapter<VideoAdapter.VideoViewHol
                 }
             });
         }
-
-//        private void setShareButtonListener(final int position){
-//            shareButton.setOnClickListener(new View.OnClickListener() {
-//                @Override
-//                public void onClick(View view) {
-//                    Toast.makeText(mCtx,"Coming soon :)",Toast.LENGTH_SHORT).show();
-//
-//                    String shareBody = ;
-//                    Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-//                    sharingIntent.setType("text/plain");
-//                    sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, "Subject Here");
-//                    sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-//                    mCtx.startActivity(Intent.createChooser(sharingIntent, "Camera Translate"));
-//
-//
-//                }
-//            });
-//        }
     }
 
     /**
-     * deletes video from database....
-     * @param db
+     * Given a video this method will delete video from the database
+     * @param db is the reference to the firebase where it will connect and do the deletion
      */
     private synchronized void deleteVideoFromDB (DatabaseReference db, final MyVideo video) {
         db.addListenerForSingleValueEvent(new ValueEventListener() {

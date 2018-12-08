@@ -27,7 +27,10 @@ import makkhay.ctube.Model.MyVideo;
 import makkhay.ctube.ui.PlayerActivity;
 import makkhay.ctube.R;
 
-
+/**
+ *
+ * This is adapter class to bridge between the UI components and the data source, and finally populate the Recyclerview
+ */
 
 public class VideoAdapterFavorites extends RecyclerView.Adapter<VideoAdapterFavorites.VideoViewHolder> {
 
@@ -98,6 +101,10 @@ public class VideoAdapterFavorites extends RecyclerView.Adapter<VideoAdapterFavo
             shareButton = itemView.findViewById(R.id.shareButton);
 
         }
+        /**
+         * It will set the id for the particular item from the list. It will be send to another acitivty using intent
+         * @param vID video id
+         */
         private void setVideoIDForPlayer(final String vID){
             //To Play Video
             videoThumbnail.setOnClickListener(new View.OnClickListener() {
@@ -111,7 +118,9 @@ public class VideoAdapterFavorites extends RecyclerView.Adapter<VideoAdapterFavo
             });
         }
         /**
-         * Favorite button now removes video from list
+         * This method helps to save an item to favorite
+         *
+         * @param position is used to get the particular item from the list
          */
         private void setFavoriteListener(final int position) {
             favButton.setOnClickListener(new View.OnClickListener() {
@@ -128,6 +137,11 @@ public class VideoAdapterFavorites extends RecyclerView.Adapter<VideoAdapterFavo
             });
         }
 
+        /**
+         * This method helps to share an item
+         *
+         * @param position is used to get the particular item from the list
+         */
         private void setShareButtonListener(final int position){
             shareButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -141,8 +155,8 @@ public class VideoAdapterFavorites extends RecyclerView.Adapter<VideoAdapterFavo
     }
 
     /**
-     * Given a video deletes video from database....
-     * @param db
+     * Given a video this method will delete video from the database
+     * @param db is the reference to the firebase where it will connect and do the deletion
      */
     private synchronized void deleteVideoFromDB (DatabaseReference db, final MyVideo video) {
         db.addListenerForSingleValueEvent(new ValueEventListener() {

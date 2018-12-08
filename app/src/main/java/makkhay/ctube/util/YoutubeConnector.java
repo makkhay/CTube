@@ -18,11 +18,14 @@ import java.util.List;
 import makkhay.ctube.Model.MyVideo;
 import makkhay.ctube.R;
 
+/**
+ * This class is responsible for fetching the youtube data via their api. The data will be retrieved, fetched and parsed in this class
+ *
+ */
 public class YoutubeConnector {
+
     private YouTube mYouTube;
     private YouTube.Search.List query;
-
-    // Your developer key goes here
     public static final String KEY = "AIzaSyDCE1-o0D9XqgTQyOLF44qtmYxOO2ob_Sc";
 
     public YoutubeConnector(Context content) {
@@ -43,6 +46,11 @@ public class YoutubeConnector {
         }
     }
 
+    /**
+     * This method will make query to the youtube backend, and grab the needed information  such as title, description etc..
+     * @param keywords, to be searched on the youtube. This is provided by the programmer for now.
+     * @return
+     */
     public List<MyVideo> search(String keywords){
         query.setQ(keywords);
         try{
@@ -75,7 +83,11 @@ public class YoutubeConnector {
             return null;
         }
     }
-
+    /**
+     * This method will make query to the youtube backend, and grab the needed information  such as title, description etc..
+     * @param keywords, to be searched on the youtube. This is provided by the programmer for now.
+     * @return
+     */
     public List<MyVideo> getNews(String keywords){
         query.setQ(keywords);
         try{
@@ -100,7 +112,11 @@ public class YoutubeConnector {
             return null;
         }
     }
-
+    /**
+     * This method will make query to the youtube backend, and grab the needed information such as title, description etc..
+     * @param videoID, to be searched on the youtube. This is provided by the programmer for now.
+     * @return
+     */
     public List<MyVideo> getNewsByID(String videoID){
         query.setQ(videoID);
         try{

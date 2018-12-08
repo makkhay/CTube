@@ -23,7 +23,7 @@ import makkhay.ctube.R;
 import makkhay.ctube.util.YoutubeConnector;
 
 /**
- * A simple {@link Fragment} subclass.
+ *  * A simple {@link Fragment} class to display the videos
  */
 public class VideoFrag extends Fragment implements AdapterView.OnItemSelectedListener {
     private RecyclerView mRecyclerView;
@@ -38,7 +38,6 @@ public class VideoFrag extends Fragment implements AdapterView.OnItemSelectedLis
         // Required empty public constructor
     }
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -47,31 +46,27 @@ public class VideoFrag extends Fragment implements AdapterView.OnItemSelectedLis
         mRecyclerView = v.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
-        // Inflate the layout for this fragment
 
         mSpinner = (Spinner) v.findViewById(R.id.filterSpinner);
 
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(getContext(),
             android.R.layout.simple_spinner_item,paths);
-
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         mSpinner.setAdapter(adapter);
         mSpinner.setOnItemSelectedListener(this);
 
-
-
-        searchOnYoutube("fox news");
+        displayYoutube("fox news");
         myVideoList = new ArrayList<MyVideo>();
         mHandler = new Handler();
         return v;
     }
-    /**
-     * This function searches videos thru the youtube API when a keyword is passed.
-     *
-     * @param
-     */
 
-    private void searchOnYoutube(final String filter) {
+    /**
+     * This function displays videos through the youtube API when a keyword is passed.
+     *
+     * @param , to be loaded from the youtube api
+     */
+    private void displayYoutube(final String filter) {
         new Thread(){
             @Override
             public void run() {
@@ -104,13 +99,11 @@ public class VideoFrag extends Fragment implements AdapterView.OnItemSelectedLis
     public void onItemSelected(AdapterView<?> adapterView, View view, int position, long l) {
         switch (position) {
             case 0:
-                // Whatever you want to happen when the first item gets selected
-                searchOnYoutube("fox news");
+                displayYoutube("fox news");
                 Toast.makeText(getContext(),"Loading, please wait :)", Toast.LENGTH_SHORT).show();
                 break;
             case 1:
-                // Whatever you want to happen when the second item gets selected
-                searchOnYoutube("fox news funny");
+                displayYoutube("fox news funny");
                 Toast.makeText(getContext(),"Loading, please wait :)", Toast.LENGTH_SHORT).show();
 
                 break;

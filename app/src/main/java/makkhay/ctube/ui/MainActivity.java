@@ -18,13 +18,14 @@ import makkhay.ctube.Fragments.VideoFrag;
 import makkhay.ctube.R;
 import makkhay.ctube.adapter.MyFragPagerAdapter;
 
+/**
+ * Main landing screen. This screen hosts two fragments using Viewpager
+ */
 
-public class NavigationActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity {
 
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-
-
 
     @Override
     protected void onStart() {
@@ -41,7 +42,6 @@ public class NavigationActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         setTitle("CTube");
-
 
         ViewPager vp = (ViewPager) findViewById(R.id.mViewpager_ID);
         this.addPages(vp);
@@ -60,45 +60,33 @@ public class NavigationActivity extends AppCompatActivity {
             @Override
             public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
                 if (firebaseAuth.getCurrentUser() == null) {
-                    startActivity(new Intent(NavigationActivity.this, SignInActivity.class));
+                    startActivity(new Intent(MainActivity.this, SignInActivity.class));
                 }
             }
         };
     }
-
+    // Manually adding fragments into viewpager
     private void addPages(ViewPager pager){
         MyFragPagerAdapter adapter = new MyFragPagerAdapter(getSupportFragmentManager());
         adapter.addPage(new VideoFrag());
         adapter.addPage(new NewsFrag());
-
         pager.setAdapter(adapter);
 
     }
-
+    // Viewpager tablayout listener. This method helps to keep track of position
     private TabLayout.OnTabSelectedListener listener( final ViewPager pager){
 
         return new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
-
                 pager.setCurrentItem(tab.getPosition());
-
-
             }
-
             @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-
-            }
-
+            public void onTabUnselected(TabLayout.Tab tab) { }
             @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
+            public void onTabReselected(TabLayout.Tab tab) { }
         };
     }
-
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -117,7 +105,7 @@ public class NavigationActivity extends AppCompatActivity {
         //noinspection SimplifiableIfStatement
         if ( id == R.id.LogOut){
             mAuth.signOut();
-            Toast.makeText(NavigationActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
+            Toast.makeText(MainActivity.this, "Logged Out", Toast.LENGTH_SHORT).show();
 
         } else if( id == R.id.favorite) {
             Intent intent = new Intent(this,FavoriteActivity.class);

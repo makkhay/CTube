@@ -4,6 +4,8 @@ import io.realm.RealmObject;
 
 /**
  * Created by Prakash Gurung on 12/7/18.
+ *
+ * Simple model class using Realm, which will be used later.
  */
 public class Comment extends RealmObject {
 

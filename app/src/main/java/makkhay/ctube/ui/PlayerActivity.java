@@ -18,12 +18,15 @@ import makkhay.ctube.R;
 import makkhay.ctube.util.YoutubeConnector;
 import makkhay.ctube.util.CustomDialogClass;
 
+/**
+ * This screen is responsible for displaying youtube video. This class extends  YoutubeBaseActivity for simplicity to play videos.
+ */
+
 public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer.OnInitializedListener {
 
     private YouTubePlayerView playerView;
     private ImageButton commentButton;
     ImageButton shareButton;
-
 
     @Override
     protected void onCreate(Bundle bundle) {
@@ -44,7 +47,7 @@ public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer
                 Toast.makeText(PlayerActivity.this,"Coming soon :)",Toast.LENGTH_SHORT).show();
             }
         });
-
+        // comment Button onClickListener , will pop up the dialog box where users can enter comments
         commentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -70,8 +73,6 @@ public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer
         }
     }
 
-
-
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -80,10 +81,7 @@ public class PlayerActivity extends YouTubeBaseActivity implements YouTubePlayer
                 onBackPressed();
                 return true;
         }
-
-
         return super.onOptionsItemSelected(item);
     }
-
 
 }

@@ -26,7 +26,7 @@ import makkhay.ctube.adapter.VideoAdapterFavorites;
 import makkhay.ctube.R;
 
 /**
- * A simple {@link Fragment} subclass.
+ * A simple {@link Fragment} class to handle the favorite videos and news.
  */
 public class FavoritesFrag extends Fragment {
     private View v;
@@ -42,8 +42,6 @@ public class FavoritesFrag extends Fragment {
      * Display all videos in a mRecyclerView that are in the mUser's favorite list
      *
      */
-
-
     public FavoritesFrag() {
         // Required empty public constructor
     }
@@ -57,21 +55,15 @@ public class FavoritesFrag extends Fragment {
         mUser = mAuth.getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference().child(mUser.getUid()).child("favorites"); // my refernce to all faovrite videos
 
-
         v = inflater.inflate(R.layout.fragment_favorites, container, false);
         mRecyclerView = v.findViewById(R.id.recyclerView);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(new LinearLayoutManager(v.getContext()));
 
-
         myVideoList = new ArrayList<MyVideo>();
 
-        /**
-         * For  DB loading
-         */
+        // for  DB loading
         loadFavsFromDatabase(mDatabase);
-
-
 
         return v;
     }

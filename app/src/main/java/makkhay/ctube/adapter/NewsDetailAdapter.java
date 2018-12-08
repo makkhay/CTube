@@ -31,6 +31,8 @@ import makkhay.ctube.R;
 import makkhay.ctube.util.CustomDialogClass;
 
 /**
+ *
+ * This is adapter class to bridge between the UI components and the data source, and finally populate the Recyclerview
  */
 
 public class NewsDetailAdapter extends RecyclerView.Adapter<NewsDetailAdapter.VideoViewHolder> {
@@ -88,14 +90,19 @@ public class NewsDetailAdapter extends RecyclerView.Adapter<NewsDetailAdapter.Vi
          * Contains one card view.
          * @param itemView
          */
-        public VideoViewHolder(View itemView) {
+        private VideoViewHolder(View itemView) {
             super(itemView);
             newsTitle = itemView.findViewById(R.id.newsTitle);
             newsBody = itemView.findViewById(R.id.bodyText);
             commentButton = itemView.findViewById(R.id.commentButton);
 
         }
-        public void setVideoIDForPlayer(final String vID){
+
+        /**
+         * It will set the id for the particular item from the list. It will be send to another acitivty using intent
+         * @param vID video id
+         */
+        private void setVideoIDForPlayer(final String vID){
             newsBody.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
@@ -108,7 +115,11 @@ public class NewsDetailAdapter extends RecyclerView.Adapter<NewsDetailAdapter.Vi
             });
         }
 
-        public void setCommentListner(final int position){
+        /**
+         * This method will fire as a onClick listener when comment button is clicked
+         * @param position, the position of item from the recyclerview list
+         */
+        private void setCommentListner(final int position){
             commentButton = itemView.findViewById(R.id.commentButton);
             commentButton.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -117,17 +128,14 @@ public class NewsDetailAdapter extends RecyclerView.Adapter<NewsDetailAdapter.Vi
                     CustomDialogClass cdd = new CustomDialogClass(mContext);
                     cdd.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
                     cdd.show();
-
-
                   }
                 });
-
-
         }
 
         /**
+         * This method helps to save an item to favorite
          *
-         * ADD VIDEO TO DATABASE...
+         * @param position is used to get the particular item from the list
          */
         public void setFavoriteListener(final int position) {
             favButton = itemView.findViewById(R.id.favButton);
@@ -155,8 +163,8 @@ public class NewsDetailAdapter extends RecyclerView.Adapter<NewsDetailAdapter.Vi
     }
 
     /**
-     * deletes video from database....
-     * @param db
+     * Given a video this method will delete video from the database
+     * @param db is the reference to the firebase where it will connect and do the deletion
      */
     private synchronized void deleteVideoFromDB (DatabaseReference db, final MyVideo video) {
         db.addListenerForSingleValueEvent(new ValueEventListener() {

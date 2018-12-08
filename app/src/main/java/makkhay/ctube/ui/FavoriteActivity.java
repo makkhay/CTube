@@ -23,6 +23,12 @@ import makkhay.ctube.Model.MyVideo;
 import makkhay.ctube.R;
 import makkhay.ctube.adapter.VideoAdapterFavorites;
 
+/**
+ * Favorite screen where saved videos will be displayed.
+ * This screen hosts a fragment
+ *
+ */
+
 public class FavoriteActivity extends AppCompatActivity {
 
   private RecyclerView mRecyclerView;
@@ -53,12 +59,9 @@ public class FavoriteActivity extends AppCompatActivity {
     mRecyclerView.setHasFixedSize(true);
     mRecyclerView.setLayoutManager(new LinearLayoutManager(this));
 
-
     myVideoList = new ArrayList<MyVideo>();
 
-    /**
-     * For  DB loading
-     */
+    // for db loading
     loadFavsFromDatabase(mDatabase);
 
   }
@@ -74,7 +77,7 @@ public class FavoriteActivity extends AppCompatActivity {
 
   /**
    * Load favorites from database then calls the mVideoAdapterFavorites with updateVideosFromDB();
-   * @param db
+   * @param db is the reference to the firebase where it will connect and do the deletion
    */
   private synchronized void loadFavsFromDatabase (DatabaseReference db) {
     db.addListenerForSingleValueEvent(new ValueEventListener() {

@@ -14,6 +14,9 @@ import makkhay.ctube.R;
 
 /**
  * Created by Prakash Gurung on 12/7/18.
+ *
+ *
+ * This is an adapter class for the Comment class
  */
 public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.CommentViewHolder> {
 

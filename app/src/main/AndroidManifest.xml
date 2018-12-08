@@ -21,7 +21,7 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".ui.NavigationActivity"
+            android:name=".ui.MainActivity"
             android:label="@string/title_activity_navigation"
             android:windowSoftInputMode="adjustPan" />
         <activity

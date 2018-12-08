@@ -11,7 +11,6 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.api.services.youtube.YouTube;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -29,6 +28,11 @@ import makkhay.ctube.ui.NewsActivity;
 import makkhay.ctube.R;
 import makkhay.ctube.util.IntentShare;
 
+/**
+ * This is adapter class to bridge between the UI components and the data source, and finally populate the Recyclerview
+ *
+ *
+ */
 
 public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.VideoViewHolder> {
 
@@ -66,6 +70,8 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.VideoViewHolde
         mDatabase = FirebaseDatabase.getInstance().getReference();
         holder.setVideoIDForPlayer(myVideo.getVideoID());
         holder.setFavoriteListener(position); //pass position...
+
+        // onClick listener for sharebutton
         holder.shareButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -98,6 +104,11 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.VideoViewHolde
             shareButton = itemView.findViewById(R.id.shareButton);
 
         }
+
+        /**
+         * It will set the id for the particular item from the list. It will be send to another acitivty using intent
+         * @param vID video id
+         */
         private void setVideoIDForPlayer(final String vID){
             newsBody.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -112,7 +123,9 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.VideoViewHolde
         }
 
         /**
-         * ADD VIDEO TO DATABASE...
+         * This method helps to save an item to favorite
+         *
+         * @param position is used to get the particular item from the list
          */
         private void setFavoriteListener(final int position) {
             favButton = itemView.findViewById(R.id.favButton);
@@ -143,7 +156,7 @@ public class NewsAdapter extends RecyclerView.Adapter<NewsAdapter.VideoViewHolde
 
     /**
      * Given a video this method will delete video from the database
-     * @param db
+     * @param db is the reference to the firebase where it will connect and do the deletion
      */
     private synchronized void deleteVideoFromDB (DatabaseReference db, final MyVideo video) {
         db.addListenerForSingleValueEvent(new ValueEventListener() {
