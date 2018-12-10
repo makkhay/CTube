@@ -22,6 +22,8 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.iid.FirebaseInstanceId;
+import com.google.firebase.iid.InstanceIdResult;
 
 import makkhay.ctube.R;
 
@@ -81,6 +83,7 @@ public class SignInActivity extends AppCompatActivity {
     protected void onStart() {
         super.onStart();
         mAuth.addAuthStateListener(mAuthListener);
+
     }
 
     private void signIn() {
@@ -99,6 +102,7 @@ public class SignInActivity extends AppCompatActivity {
                 GoogleSignInAccount account = result.getSignInAccount();
                 firebaseAuthWithGoogle(account);
                 Toast.makeText(SignInActivity.this,"Sign In Successful...",Toast.LENGTH_SHORT).show();
+                fetchToken();
             }
             if (mGoogleApiClient != null && mGoogleApiClient.isConnected()) {
                 Auth.GoogleSignInApi.signOut(mGoogleApiClient);
@@ -134,4 +138,29 @@ public class SignInActivity extends AppCompatActivity {
                 });
 
     }
+
+    /**
+     * Fetches firebase token for single device testing
+     */
+    private void fetchToken(){
+        // Get token
+        FirebaseInstanceId.getInstance().getInstanceId()
+            .addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
+                @Override
+                public void onComplete(@NonNull Task<InstanceIdResult> task) {
+                    if (!task.isSuccessful()) {
+                        Log.w(TAG, "getInstanceId failed", task.getException());
+                        return;
+                    }
+
+                    // Get new Instance ID token
+                    String token = task.getResult().getToken();
+
+                    // Log and toast
+                    String msg = getString(R.string.msg_token_fmt, token);
+                    Log.d(TAG, msg);
+                }
+            });
+    }
+
 }

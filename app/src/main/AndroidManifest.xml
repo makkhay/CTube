@@ -29,6 +29,16 @@
             android:screenOrientation="portrait" />
         <activity android:name=".ui.FavoriteActivity" />
         <activity android:name=".ui.NewsActivity"></activity>
+
+        <service android:name=".util.FirebaseMessagingService">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorAccent1" />
     </application>
 
 </manifest>
