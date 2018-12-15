@@ -26,7 +26,7 @@ public class YoutubeConnector {
 
     private YouTube mYouTube;
     private YouTube.Search.List query;
-    public static final String KEY = "AIzaSyDCE1-o0D9XqgTQyOLF44qtmYxOO2ob_Sc";
+    public static final String KEY = "Your_api_key";
 
     /**
      * This constructor first creates an instance of youtube, which we will use to make a Http request to the server with the specific query.
